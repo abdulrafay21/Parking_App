@@ -13,11 +13,6 @@ namespace Parking_App.Controllers
         {
             return View();
         }
-
-        public IActionResult Register()
-        {
-            return RedirectToAction("Index", "SignUpController");
-        }
     }
 }
 
