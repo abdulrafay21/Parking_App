@@ -6,10 +6,10 @@ namespace Parking_App.Models
 {
     public class ParkingAppContext : DbContext
     {
-        public DbSet<User> Users;
+        public DbSet<User> Users { get; set; }
 
         private static string _connStr =
-            @"Server=localhost,1401; Database=Master; User Id=SA;Password=root";
+            @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=myPark;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

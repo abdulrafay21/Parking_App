@@ -20,10 +20,8 @@
     <Folder Include="Views\" />
     <Folder Include="Views\Login" />
     <Folder Include="Views\SignUp" />
-    <Folder Include="Views\SignUp\" />
     <Folder Include="Views\Home\" />
     <Folder Include="wwwroot\images\" />
-    <Folder Include="Views\Login\" />
     <Folder Include="Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
