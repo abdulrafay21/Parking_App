@@ -9,9 +9,14 @@ namespace Parking_App.Controllers
     public class LoginController : Controller
     {
         [HttpGet]
-        public ViewResult Index()
+        public IActionResult Index()
         {
             return View();
+        }
+
+        public IActionResult Register()
+        {
+            return RedirectToAction("Index", "SignUpController");
         }
     }
 }
