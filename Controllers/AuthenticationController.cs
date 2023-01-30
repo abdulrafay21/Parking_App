@@ -23,7 +23,7 @@ namespace Parking_App.Controllers
             User? user = userAuth.CreateUser(username, email, passwd);
             if (user != null)
             {
-                return View("Login");
+                return RedirectToAction("Index", "Home");
             }
 
             return View("Error", "User With This Email Already Exists...");
