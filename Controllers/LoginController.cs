@@ -11,7 +11,7 @@ namespace Parking_App.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            return Index();
         }
     }
 }

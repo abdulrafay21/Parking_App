@@ -8,9 +8,17 @@ namespace Parking_App.Controllers
 {
     public class SignUpController : Controller
     {
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
+        }
+        
+        [HttpPost]
+        public IActionResult Index(string username)
+        {
+            Console.WriteLine(username);
+            return View("Index");
         }
     }
 }
