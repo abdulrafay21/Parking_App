@@ -36,7 +36,6 @@ namespace Parking_App.Controllers
             User? user = userAuth.Login(email, passwd);
             if (user != null)
             {
-                HttpContext.Response.Cookies.Append("user", user.Username);
                 return RedirectToAction("Index", "Home");
             }
 
