@@ -12,6 +12,11 @@ namespace Parking_App.Controllers
         {
             return View();
         }
+
+        public ViewResult AboutUs()
+        {
+            return View();
+        }
     }
 }
 
