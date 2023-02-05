@@ -1,0 +1,23 @@
+{
+  "name": "parking_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abdulrafay21/parking_app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abdulrafay21/parking_app/issues"
+  },
+  "homepage": "https://github.com/abdulrafay21/parking_app#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.2.4"
+  }
+}
