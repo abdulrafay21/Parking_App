@@ -9,13 +9,13 @@
   <div class="flex items-center justify-center min-h-screen bg-no-repeat bg-cover bg-center"
     style="background-image: url(https://images.unsplash.com/photo-1532423622396-10a3f979251a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1500&q=80);">
     <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8 bg-white rounded-md w-2/6">
-      <h1 class="mx-auto max-w-lg text-center jtext-2xl font-bold sm:text-3xl">Log in to your account</h1>
+      <h1 class="mx-auto max-w-lg text-center text-2xl font-bold sm:text-3xl">Log in to your account</h1>
       <form action="/Authentication/login" method="post" class="mx-auto mt-8 mb-0 max-w-md space-y-4" name="login">
         <div>
           <label for="email" class="sr-only">Email</label>
           <div class="relative">
             <input type="email" class="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
-              placeholder="Enter email" name="email" />
+              placeholder="Enter email" name="email"  id="email"/>
           </div>
         </div>
 
@@ -23,7 +23,7 @@
           <label for="password" class="sr-only">Password</label>
           <div class="relative">
             <input type="password" class="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
-              placeholder="Enter password" name="passwd" />
+              placeholder="Enter password" name="passwd" id="password" />
           </div>
         </div>
 
