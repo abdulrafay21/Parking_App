@@ -1,44 +1,48 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>@ViewData["Title"]</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-          integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-          crossorigin="anonymous" referrerpolicy="no-referrer"/>
-    <link rel="stylesheet" href="~/css/output.css"/>
-</head>
-<body>
 
-<div class="app min-h-screen flex flex-col">
-    <header class="flex justify-between py-4 px-10 shadow-md">
-        <div>
-            <h1 class="text-2xl text-[#006d77] font-bold">
-                ParkWhiz
-            </h1>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+            integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="~/css/output.css" />
+    </head>
+
+    <body>
+
+        <div class="app min-h-screen flex flex-col">
+            <header class="flex justify-between py-4 px-10 shadow-md">
+                <div>
+                    <h1 class="text-2xl text-[#006d77] font-bold">
+                        ParkWhiz
+                    </h1>
+                </div>
+                <nav class="flex-grow">
+                    <ul class="flex justify-end">
+                        <li class="mx-4 hover:underline">About Us</li>
+                        <li class="mx-4 hover:underline">Sign Out</li>
+                        <li class="mx-4 hover:underline">
+                            <i class="fa-regular fa-user"></i>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+
+            @RenderBody()
+
+            @RenderSection("info", required: false)
+
+            <div class="h-40"></div>
+            <footer class="mt-auto">
+                <div class="text-center p-4 bg-[#006d77] text-white">
+                    © 2023 Copyright: ParkWhiz
+                </div>
+            </footer>
         </div>
-        <nav class="flex-grow">
-            <ul class="flex justify-end">
-                <li class="mx-4 hover:underline">About Us</li>
-                <li class="mx-4 hover:underline">Sign Out</li>
-                <li class="mx-4 hover:underline">
-                    <i class="fa-regular fa-user"></i>
-                </li>
-            </ul>
-        </nav>
-    </header>
 
-    @RenderBody()
-    
-    <div class="h-40"></div>
-    <footer class="mt-auto">
-        <div class="text-center p-4 bg-[#006d77] text-white">
-            © 2023 Copyright: ParkWhiz
-        </div>
-    </footer>
-</div>
+    </body>
 
-</body>
 </html>

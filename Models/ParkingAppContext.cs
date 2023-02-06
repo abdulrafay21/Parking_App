@@ -8,8 +8,10 @@ namespace Parking_App.Models
     {
         public DbSet<User> Users { get; set; }
 
-        private static string _connStr =
-            @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=myPark;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        //private static string _connStr =
+        //    @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=myPark;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+
+        private static string _connStr = @"Server=localhost; Database=Parking_App; User Id=sa; Password=1410_Rafay; TrustServerCertificate=True";
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
