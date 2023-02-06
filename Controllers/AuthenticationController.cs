@@ -11,6 +11,7 @@ namespace Parking_App.Controllers
             return View("Signup");
         }
 
+        [HttpGet]
         public IActionResult Login()
         {
             return View("Login");
@@ -34,8 +35,12 @@ namespace Parking_App.Controllers
         {
             UserAuth userAuth = new UserAuth();
             User? user = userAuth.Login(email, passwd);
+
+
             if (user != null)
             {
+                HttpContext.Response.Cookies.Append("user", user.Username);
+                HttpContext.Response.Cookies.Append("email", user.Email);
                 return RedirectToAction("Index", "Home");
             }
 

@@ -19,11 +19,7 @@
     <Folder Include="Controllers\" />
     <Folder Include="Views\" />
     <Folder Include="Views\Home\" />
-    <Folder Include="wwwroot\images\" />
     <Folder Include="Views\Shared\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Remove="wwwroot\images\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.2" />
