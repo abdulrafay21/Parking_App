@@ -1,136 +1,140 @@
-﻿@{ Layout = "~/Views/Shared/_Layout1.cshtml";}
+﻿@{ Layout = "~/Views/Shared/_Layout1.cshtml"; }
 
 <!DOCTYPE html>
 <html>
 
 <head>
     <!-- Basic -->
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <!-- Mobile Metas -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <!-- Site Metas -->
-    <meta name="keywords" content="" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
 
     <title>Paspark</title>
 
-
-    <!-- bootstrap core css -->
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
-
-    <!-- fonts style -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
-
-    <!-- nice selecy -->
-    @*<link rel="stylesheet" href="/css/nice-select.min.css">*@
-    @*<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.css" integrity="sha512-uHuCigcmv3ByTqBQQEwngXWk7E/NaPYP+CFglpkXPnRQbSubJmEENgh+itRDYbWV0fUZmUz7fD/+JDdeQFD5+A==" crossorigin="anonymous" referrerpolicy="no-referrer" />*@
-
-    <!--owl slider stylesheet -->
-    @*<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />*@
-
-    <!-- font awesome style -->
-    @*<link href="/css/font-awesome.min.css" rel="stylesheet" />*@
-
-    <!-- Custom styles for this template -->
-    <link href="/css/style.css" rel="stylesheet" />
-    <!-- responsive style -->
-    <link href="/css/responsive.css" rel="stylesheet" />
-
 </head>
 
-<body>
+<main class="flex flex-col gap-20">
+    <section
+        style="background-image: url(https://images.unsplash.com/photo-1616790151040-47661836dd26?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80);"
+        class="bg-no-repeat bg-center h-[60vh] bg-cover">
+        <div class="backdrop-blur-md h-full flex flex-col items-center justify-center gap-16">
+            <h1 class="text-5xl text-white ">The best deals for parking lots</h1>
 
-    <div class="hero_area">
-        <div class="bg-box">
-            <img src="images/slider-bg.jpg" alt="">
+            <form class="flex items-center flex-col gap-4">
+                <div class="relative">
+                    <input type="text" class="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
+                           placeholder="Search city ..." name="city_search"/>
+                </div>
+                <button type="submit"
+                        class="ml-3 inline-block rounded-lg bg-[#006d77] px-5 py-3 text-sm font-medium text-white">
+                    Search
+                </button>
+            </form>
         </div>
+    </section>
 
-        <!-- slider section -->
-        <section class="slider_section ">
-            <div class="container">
-                <div class="detail-box col-md-9 mx-auto px-0">
-                    <h1>
-                        Finding Parking Lots Made Easy
-                    </h1>
-                    <p>
-                        Necessitatibus non ducimus hic dolor? Maiores itaque vitae sit blanditiis porro, a expedita ex. Totam vel sed obcaecati. Placeat maxime asperiores deleniti tenetur officiis laboriosam laborum a nihil quisquam quis!
-                    </p>
+    <section class="w-3/4 mx-auto">
+        <div class="w-3/6 mx-auto flex flex-col gap-10">
+            <div class="flex gap-4 justify-between mx-2 items-center">
+                <div class="flex gap-8 items-center">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1048/1048315.png" class="w-12 border-red-50">
+                    <span class="text-lg">Lorem ipsum dolor sit amet</span>
                 </div>
-                <div class="find_form_container">
-                    <form action="#">
-                        <div class="form-row">
-                            <div class="col-md-4 px-0">
-                                <div class="form-group">
-                                    <label for="">Select Parking</label>
-                                    <div class="input-group">
-                                        <select class="form-control">
-                                            <option data-display="Highway Park">Highway Park</option>
-                                            <option value="1">Highway Park</option>
-                                            <option value="2">Highway Park</option>
-                                            <option value="3">Highway Park</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 px-0">
-                                <div class="form-group ">
-                                    <label for="">Your Name</label>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="John doe" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 px-0">
-                                <div class="form-group">
-                                    <label for="">Your Mobile Number</label>
-                                    <div class="input-group ">
-                                        <input type="text" class="form-control" placeholder="01 2345678910" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="btn-box">
-                            <button type="submit" class="">
-                                <span>
-                                    Search Now
-                                </span>
-                            </button>
-                        </div>
-                    </form>
-                </div>
+                <button class="rounded-lg bg-[#006d77] px-5 py-3 text-sm font-medium text-white">View</button>
             </div>
-        </section>
-        <!-- end slider section -->
-    </div>
+            <div class="flex gap-4 justify-between mx-2 items-center">
+                <div class="flex gap-8 items-center">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1048/1048315.png" class="w-12 border-red-50">
+                    <span class="text-lg">Lorem ipsum dolor sit amet</span>
+                </div>
+                <button class="rounded-lg bg-[#006d77] px-5 py-3 text-sm font-medium text-white">View</button>
+            </div>
+            <div class="flex gap-4 justify-between mx-2 items-center">
+                <div class="flex gap-8 items-center">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1048/1048315.png" class="w-12 border-red-50">
+                    <span class="text-lg">Lorem ipsum dolor sit amet</span>
+                </div>
+                <button class="rounded-lg bg-[#006d77] px-5 py-3 text-sm font-medium text-white">View</button>
+            </div>
+        </div>
+    </section>
 
-    <!-- about section -->
-    @{
-        Html.RenderPartial("_about");
-    }
 
-    <!-- why section -->
-    @{
-        Html.RenderPartial("_whyUs");
-    }
+</main>
 
-    <!-- jQery -->
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <!-- popper js -->
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js">
-    </script>
-    <!-- nice select -->
-    <script src="js/jquery.nice-select.min.js"></script>
-    <!-- bootstrap js -->
-    <script src="js/bootstrap.js"></script>
-    <!-- owl slider -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
-    </script>
-    <!-- custom js -->
-    <script src="js/custom.js"></script>
+@* <div class="hero_area"> *@
+@*     <div class="bg-box"> *@
+@*         <img src="images/slider-bg.jpg" alt=""> *@
+@*     </div> *@
+@* *@
+@*     <!-- slider section --> *@
+@*     <section class="slider_section "> *@
+@*         <div class="container"> *@
+@*             <div class="detail-box col-md-9 mx-auto px-0"> *@
+@*                 <h1> *@
+@*                     Finding Parking Lots Made Easy *@
+@*                 </h1> *@
+@*                 <p> *@
+@*                     Necessitatibus non ducimus hic dolor? Maiores itaque vitae sit blanditiis porro, a expedita ex. Totam vel sed obcaecati. Placeat maxime asperiores deleniti tenetur officiis laboriosam laborum a nihil quisquam quis! *@
+@*                 </p> *@
+@*             </div> *@
+@*             <div class="find_form_container"> *@
+@*                 <form action="#"> *@
+@*                     <div class="form-row"> *@
+@*                         <div class="col-md-4 px-0"> *@
+@*                             <div class="form-group"> *@
+@*                                 <label for="">Select Parking</label> *@
+@*                                 <div class="input-group"> *@
+@*                                     <select class="form-control"> *@
+@*                                         <option data-display="Highway Park">Highway Park</option> *@
+@*                                         <option value="1">Highway Park</option> *@
+@*                                         <option value="2">Highway Park</option> *@
+@*                                         <option value="3">Highway Park</option> *@
+@*                                     </select> *@
+@*                                 </div> *@
+@*                             </div> *@
+@*                         </div> *@
+@*                         <div class="col-md-4 px-0"> *@
+@*                             <div class="form-group "> *@
+@*                                 <label for="">Your Name</label> *@
+@*                                 <div class="input-group"> *@
+@*                                     <input type="text" class="form-control" placeholder="John doe" /> *@
+@*                                 </div> *@
+@*                             </div> *@
+@*                         </div> *@
+@*                         <div class="col-md-4 px-0"> *@
+@*                             <div class="form-group"> *@
+@*                                 <label for="">Your Mobile Number</label> *@
+@*                                 <div class="input-group "> *@
+@*                                     <input type="text" class="form-control" placeholder="01 2345678910" /> *@
+@*                                 </div> *@
+@*                             </div> *@
+@*                         </div> *@
+@*                     </div> *@
+@*                     <div class="btn-box"> *@
+@*                         <button type="submit" class=""> *@
+@*                             <span> *@
+@*                                 Search Now *@
+@*                             </span> *@
+@*                         </button> *@
+@*                     </div> *@
+@*                 </form> *@
+@*             </div> *@
+@*         </div> *@
+@*     </section> *@
+@*     <!-- end slider section --> *@
+@* </div> *@
 
-</body>
+@{
+    Html.RenderPartial("_about");
+}
 
-</html>
+@{
+    Html.RenderPartial("_whyUs");
+}
