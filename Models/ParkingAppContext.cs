@@ -17,5 +17,34 @@ namespace Parking_App.Models
         {
             optionsBuilder.UseSqlServer(_connStr);
         }
+
+        public override int SaveChanges()
+        {
+            var tracker = ChangeTracker;
+
+            foreach (var entry in tracker.Entries())
+            {
+                if (entry.Entity is Entity)
+                {
+                    var referenceEntity = entry.Entity as Entity;
+                    switch (entry.State)
+                    {
+                        case EntityState.Added:
+                            referenceEntity.CreatedDate = DateTime.Now;
+                            referenceEntity.IsActive = true;
+                            break;
+                        case EntityState.Modified:
+                            referenceEntity.ModifiedDate = DateTime.Now;
+                            break;
+                        case EntityState.Deleted:
+                            referenceEntity.IsActive = false;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+            return base.SaveChanges();
+        }
     }
 }

@@ -1,6 +1,6 @@
 namespace Parking_App.Models
 {
-    public class User
+    public class User : Entity
     {
         public long? Id { get; set; }
 
