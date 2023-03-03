@@ -1,6 +1,8 @@
+using System.IO;
+
 namespace Parking_App.Models
 {
-    public class UserAuth
+    public class UserAuth: IUserRepo
     {
         private ParkingAppContext db;
 
@@ -44,6 +46,21 @@ namespace Parking_App.Models
             {
                 return null;
             }
+        }
+
+        public void SaveProfileData(long id,string name, string email, string profileName) {
+            User user = db.Users.Where<User>(user => user.Id == id).ToList()[0];
+            user.Username = name;
+            user.Email = email;
+            if (profileName != null) {
+                user.ProfileName = profileName;
+            }
+            db.SaveChanges();
+        }
+
+        public User GetUser(long id) {
+            User user = db.Users.First(user => user.Id == id);
+            return user;
         }
     }
 }

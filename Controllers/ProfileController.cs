@@ -1,46 +1,64 @@
 using Microsoft.AspNetCore.Mvc;
+using Parking_App.Models;
 
 namespace Parking_App.Controllers;
 
 public class ProfileController : Controller
 {
     private readonly IWebHostEnvironment Environment;
+    private readonly IUserRepo userAuth;
 
-    public ProfileController(IWebHostEnvironment
-        environment)
+    public ProfileController(IWebHostEnvironment environment, IUserRepo user)
     {
-
         Environment = environment;
+        userAuth = user;
     }
 
-    // GET
+    [HttpGet]
     public IActionResult Index()
     {
-        return View("Index");
+        
+        long userId = (long)int.Parse(HttpContext.Request.Cookies["id"]);
+        User user = userAuth.GetUser(userId);
+        return View("Index", user);
     }
-
+    
     [HttpPost]
-    public IActionResult Index(List<IFormFile> postedFiles)
+    public IActionResult Index([FromForm] string name, [FromForm] string email, [FromForm] IFormFile profile)
     {
-        string wwwPath = this.Environment.WebRootPath;
-        string path = Path.Combine(wwwPath, "Uploads");
-        if (!Directory.Exists(path))
-        {
-            Directory.CreateDirectory(path);
-        }
+        long userId = (long)int.Parse(HttpContext.Request.Cookies["id"]);
+        string fileName = null;
 
-        foreach (var file in postedFiles)
-        {
-            var fileName = Path.GetFileName(file.FileName);
+        if (profile != null) {
+            string wwwPath = this.Environment.WebRootPath;
+            string path = Path.Combine(wwwPath, "Uploads");
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+
+            path = Path.Combine(path, "" + userId);
+            Directory.CreateDirectory(path);
+
+            fileName = "profile" + Path.GetExtension(profile.FileName);
+
             var pathWithFileName = Path.Combine(path, fileName);
             using (FileStream stream = new
-                FileStream(pathWithFileName,
-                FileMode.Create))
+            FileStream(pathWithFileName,
+            FileMode.Create))
             {
-                file.CopyTo(stream);
-                ViewBag.Message = "file uploaded successfully";
+            profile.CopyTo(stream);
+            ViewBag.Message = "file uploaded successfully";
             }
         }
-        return View();
+
+
+        
+        userAuth.SaveProfileData(userId,name, email, fileName);
+
+        HttpContext.Response.Cookies.Append("user", name);
+        HttpContext.Response.Cookies.Append("email", email);
+
+        return RedirectToAction("Index", "Home");
     }
 }

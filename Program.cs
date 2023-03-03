@@ -1,8 +1,10 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using Parking_App.Models;
+
+var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddScoped<IUserRepo, UserAuth>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

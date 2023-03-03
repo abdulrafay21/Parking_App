@@ -26,6 +26,8 @@ namespace Parking_App.Controllers
             options.Expires = DateTime.Now.AddDays(-3d);
             HttpContext.Response.Cookies.Append("user", "", options = options);
             HttpContext.Response.Cookies.Append("email", "", options = options);
+            HttpContext.Response.Cookies.Append("id", "", options = options);
+            HttpContext.Response.Cookies.Append("profile", "", options = options);
             return RedirectToAction("Login", "Authentication");
         }
     }

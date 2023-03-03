@@ -16,11 +16,12 @@ namespace Parking_App.Models
         }
 
 
-        //private static string _connStr = @"Server=localhost; Database=Parking_App; User Id=sa; Password=1410_Rafay; TrustServerCertificate=True";
+        private static string _connStr = @"Server=localhost; Database=Parking_App; User Id=sa; Password=1410_Rafay; TrustServerCertificate=True";
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-                optionsBuilder.UseSqlServer(@"Server = backend; Database = master; User = sa; Password = Docker123!; TrustServerCertificate=true; encrypt=false;");
+                //optionsBuilder.UseSqlServer(@"Server = backend; Database = master; User = sa; Password = Docker123!; TrustServerCertificate=true; encrypt=false;");
+            optionsBuilder.UseSqlServer(_connStr);
         }
 
         public override int SaveChanges()
