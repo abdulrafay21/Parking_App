@@ -1,18 +1,22 @@
-﻿@{ Layout = "~/Views/Shared/_Layout1.cshtml"; }
+﻿@model List<Parking_App.Models.ParkingSpot>
+
+@{
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
 
 <!DOCTYPE html>
 <html>
 
 <head>
     <!-- Basic -->
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- Mobile Metas -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <!-- Site Metas -->
-    <meta name="keywords" content=""/>
-    <meta name="description" content=""/>
-    <meta name="author" content=""/>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
 
     <title>Paspark</title>
@@ -20,16 +24,15 @@
 </head>
 
 <main class="flex flex-col gap-20 mb-40">
-    <section
-        style="background-image: url(https://images.unsplash.com/photo-1616790151040-47661836dd26?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80);"
-        class="bg-no-repeat bg-center h-[60vh] bg-cover">
+    <section style="background-image: url(https://images.unsplash.com/photo-1616790151040-47661836dd26?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80);"
+             class="bg-no-repeat bg-center h-[60vh] bg-cover">
         <div class="backdrop-blur-md h-full flex flex-col items-center justify-center gap-16">
             <h1 class="text-5xl text-white ">The best deals for parking lots</h1>
 
-            <form class="flex items-center flex-col gap-4">
+            <form class="flex items-center flex-col gap-4" action="/Home/SearchParkings" method="POST">
                 <div class="relative">
                     <input type="text" class="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
-                           placeholder="Search city ..." name="city_search"/>
+                           placeholder="Search city ..." name="city_search" />
                 </div>
                 <button type="submit"
                         class="ml-3 inline-block rounded-lg bg-[#006d77] px-5 py-3 text-sm font-medium text-white">
@@ -39,30 +42,30 @@
         </div>
     </section>
 
+
     <section class="w-2/3 mx-auto">
-        <h2>Parking spaces available in your city</h2>
+        @if (Model.Count == 0)
+        {
+            <h2>Please Search for a city to see parking spots</h2>
+        }
+        @if (Model.Count >= 1)
+        {
+
+            <h2>Parking spaces available in your city</h2>
+        }
         <div class="mx-auto flex flex-col gap-10">
-            <div class="flex gap-4 justify-between mx-2 items-center">
-                <div class="flex gap-8 items-center">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1048/1048315.png" class="w-12 border-red-50">
-                    <span class="text-lg">Lorem ipsum dolor sit amet</span>
+            @foreach (var p_spot in Model)
+            {
+                <div class="flex gap-4 justify-between mx-2 items-center">
+                    <div class="flex gap-8 items-center">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1048/1048315.png" class="w-12 border-red-50">
+                        <span class="text-lg">@p_spot.name</span>
+                    </div>
+                    <button class="rounded-lg bg-[#006d77] px-5 py-3 text-sm font-medium text-white">
+                        <a href="/ParkingSpot/view/@p_spot.ID">View</a>
+                    </button>
                 </div>
-                <button class="rounded-lg bg-[#006d77] px-5 py-3 text-sm font-medium text-white">View</button>
-            </div>
-            <div class="flex gap-4 justify-between mx-2 items-center">
-                <div class="flex gap-8 items-center">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1048/1048315.png" class="w-12 border-red-50">
-                    <span class="text-lg">Lorem ipsum dolor sit amet</span>
-                </div>
-                <button class="rounded-lg bg-[#006d77] px-5 py-3 text-sm font-medium text-white">View</button>
-            </div>
-            <div class="flex gap-4 justify-between mx-2 items-center">
-                <div class="flex gap-8 items-center">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1048/1048315.png" class="w-12 border-red-50">
-                    <span class="text-lg">Lorem ipsum dolor sit amet</span>
-                </div>
-                <button class="rounded-lg bg-[#006d77] px-5 py-3 text-sm font-medium text-white">View</button>
-            </div>
+            }
         </div>
     </section>
 
@@ -102,7 +105,7 @@
                 </div>
                 <div>
                     <h2 class="mb-6 text-sm font-semibold uppercase ">Legal</h2>
-                    <ul >
+                    <ul>
                         <li class="mb-4">
                             <a href="#" class="hover:underline">Privacy Policy</a>
                         </li>
@@ -113,11 +116,11 @@
                 </div>
             </div>
         </div>
-        <hr class="my-3 border-white-700 "/>
+        <hr class="my-3 border-white-700 " />
     </section>
 }
 
-@{
+    @{
     Html.RenderPartial("_about");
 }
 

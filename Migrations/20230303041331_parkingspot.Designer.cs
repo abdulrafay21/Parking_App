@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Parking_App.Models;
 
@@ -11,9 +12,11 @@ using Parking_App.Models;
 namespace ParkingApp.Migrations
 {
     [DbContext(typeof(ParkingAppContext))]
-    partial class ParkingAppContextModelSnapshot : ModelSnapshot
+    [Migration("20230303041331_parkingspot")]
+    partial class parkingspot
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,62 +51,6 @@ namespace ParkingApp.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Parkings");
-
-                    b.HasData(
-                        new
-                        {
-                            ID = 10L,
-                            city = "lahore",
-                            isBooked = false,
-                            name = "park1",
-                            price = 500,
-                            timer = new DateTime(2023, 3, 3, 9, 15, 42, 253, DateTimeKind.Local).AddTicks(6101)
-                        },
-                        new
-                        {
-                            ID = 11L,
-                            city = "lahore",
-                            isBooked = false,
-                            name = "park2",
-                            price = 600,
-                            timer = new DateTime(2023, 3, 3, 9, 15, 42, 253, DateTimeKind.Local).AddTicks(6116)
-                        },
-                        new
-                        {
-                            ID = 12L,
-                            city = "karachi",
-                            isBooked = false,
-                            name = "park1",
-                            price = 1000,
-                            timer = new DateTime(2023, 3, 3, 9, 15, 42, 253, DateTimeKind.Local).AddTicks(6117)
-                        },
-                        new
-                        {
-                            ID = 13L,
-                            city = "qasur",
-                            isBooked = false,
-                            name = "park5",
-                            price = 200,
-                            timer = new DateTime(2023, 3, 3, 9, 15, 42, 253, DateTimeKind.Local).AddTicks(6215)
-                        },
-                        new
-                        {
-                            ID = 14L,
-                            city = "qasur",
-                            isBooked = false,
-                            name = "park7",
-                            price = 900,
-                            timer = new DateTime(2023, 3, 3, 9, 15, 42, 253, DateTimeKind.Local).AddTicks(6217)
-                        },
-                        new
-                        {
-                            ID = 19L,
-                            city = "lahore",
-                            isBooked = false,
-                            name = "park5",
-                            price = 900,
-                            timer = new DateTime(2023, 3, 3, 9, 15, 42, 253, DateTimeKind.Local).AddTicks(6219)
-                        });
                 });
 
             modelBuilder.Entity("Parking_App.Models.User", b =>
